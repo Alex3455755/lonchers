@@ -7,6 +7,9 @@
     padding: 0;
     font-family: "Inter";
 }
+/* html {
+    overflow: hidden;
+} */
 body{
     background-color: black;
 }
@@ -17,17 +20,21 @@ header{
     height: 100vh;
 }
 #text_box{
-    font-size: 18vw;
+    font-size: 20vw;
     align-self: center;
     cursor: pointer;
-    height: 200px;
-    width: 80%;
-    background-color: blue;
+    z-index: 1;
 }
 #text_box>p{
     display: block;
+    z-index: 1;
+}
+.text_top{
+    transition-duration: 0.2s;
 }
 .point{
+    color: white;
+    z-index: 0;
     width: 10px;
     height: 10px;
     background-color: black;
@@ -45,5 +52,6 @@ header{
     font-size: 20px;
 }
 .top_header>p:nth-child(2){
+    z-index: 1;
     text-decoration:underline;
 }
