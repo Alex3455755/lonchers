@@ -7,51 +7,29 @@
     padding: 0;
     font-family: "Inter";
 }
-/* html {
-    overflow: hidden;
-} */
-body{
-    background-color: black;
-}
-header{
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    height: 100vh;
-}
-#text_box{
-    font-size: 20vw;
-    align-self: center;
-    cursor: pointer;
-    z-index: 1;
-}
-#text_box>p{
-    display: block;
-    z-index: 1;
-}
-.text_top{
-    transition-duration: 0.2s;
-}
-.point{
-    color: white;
-    z-index: 0;
-    width: 10px;
-    height: 10px;
-    background-color: black;
-    position: absolute;
-    transition-duration: 0.2s;
-    transition-timing-function: linear;
-    border-radius: 100%;
-    top: -100px;
-    left: -100px;
-}
 .top_header{
     display: flex;
-    width: 100%;
+    background-color: black;
     justify-content: space-between;
-    font-size: 20px;
 }
-.top_header>p:nth-child(2){
-    z-index: 1;
-    text-decoration:underline;
+.top_header>p{
+    color: white;
+}
+.title{
+    color: white;
+    font-size: 18vw;
+}
+#text_box{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+.cursor{
+    transition: 0.3s;
+    position: absolute;
+    border-radius: 100%;
+    background-color: white;
+    mix-blend-mode: difference;
 }

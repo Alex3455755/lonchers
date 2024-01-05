@@ -1,40 +1,33 @@
 "use strict"
 
-const point = document.querySelector('.point');
-const text = document.getElementById('text_box');
-document.querySelector('.container').addEventListener('mousemove', (event) => {
-    const X = event.clientX;
-    const Y = event.clientY;
-    let newPointY, newPointX;
-    if (event.target === text || event.target.classList.contains('text_top')) {
-        newPointX = X - 100;
-        newPointY = Y - 100;
-        point.style.height = '200px';
-        point.style.width = '200px';
-    } else {
-        newPointX = X - 5;
-        newPointY = Y - 5;
-        point.style.height = '10px';
-        point.style.width = '10px';
+document.addEventListener("DOMContentLoaded",()=>{
+    const title = document.querySelector('.title');
+    const cursor = document.createElement('div');
+    const cursorWidth = 25;
+    const cursorHeight = 25;
+    const cursorWidthHover = 100;
+    const cursorHeightHover = 100;
+    cursor.classList.add('cursor');
+    document.body.appendChild(cursor);
+    console.log(cursor);
 
-    }
-    if (window.screen.height <= newPointY + 10) {
-        newPointY = window.screen.height - 10
-    }
-    if (window.screen.width <= newPointX + 10) {
-        newPointX = window.screen.width - 10
-    }
-    point.style.left = newPointX + 'px';
-    point.style.top = newPointY + 'px';
-});
+    document.body.addEventListener('mousemove',(e) =>{
+        let x = e.clientX;
+        let y = e.clientY;
 
-text.addEventListener('mouseover', (event) => {
-    const X = event.clientX;
-    const Y = event.clientY;
-    event.target.style.color = 'white';
-    console.log(event.target)
-})
-
-text.addEventListener('mouseout', (event) =>{
-    event.target.style.color = 'black';
+        const rect = title.getBoundingClientRect();
+        console.log(rect);
+        const inTitle = x>rect.left && x<rect.right && y > rect.top && y < rect.bottom;
+        if (inTitle){
+            cursor.style.top = (y-cursorHeightHover/2)+'px';
+            cursor.style.left = (x-cursorWidthHover/2)+'px';
+            cursor.style.width = cursorWidthHover +'px';
+            cursor.style.height = cursorHeightHover +'px';
+        }else{
+            cursor.style.top = (y-cursorHeight/2)+'px';
+            cursor.style.left = (x-cursorWidth/2)+'px';
+            cursor.style.width = cursorWidth +'px';
+            cursor.style.height = cursorHeight +'px';
+        }
+    })
 })
